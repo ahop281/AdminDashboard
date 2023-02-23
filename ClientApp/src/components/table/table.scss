@@ -1,0 +1,279 @@
+@use '../../scss/abstracts/' as *;
+
+.table {
+
+  &-container {
+    overflow-x: hidden;
+
+    @include mobile {
+      overflow-x: scroll;
+    }
+
+    table {
+      table-layout: fixed;
+      width: 100%;
+      min-height: 200px;
+      min-width: 542px;
+      border-collapse: collapse;
+      border-radius: 8px;
+      word-wrap: break-word;
+
+      thead {
+        // border-top: 1px solid $borderColor;
+        // border-bottom: 1px solid $borderColor;
+        border-radius: 8px;
+
+        tr {
+          background: $light;
+        }
+
+        th {
+          // border-radius: 8px;
+          // border: 1px solid $borderColor;
+          padding: 15px;
+        }
+      }
+
+      tbody {
+        border: 1px solid $borderColor;
+        border-radius: 8px;
+
+        tr {
+          border: 1px solid $light;
+        }
+
+        td {
+          padding: 5px 10px;
+          text-align: center;
+        }
+      }
+
+    }
+  }
+
+  &__header {
+    @include flex(center, space-between);
+
+    &__right {
+      @include flex(center, space-between);
+
+      .search {
+        @include flex(stretch, space-between);
+
+        padding: 4px 8px;
+        border-radius: 8px;
+        background: $light;
+        transition: all linear 1.5s;
+
+        img {
+          margin-right: 8px;
+          height: 30px;
+          width: 30px;
+          opacity: 0.2;
+        }
+
+        &__input {
+          border: none;
+          font-size: 16px;
+          color: $gray;
+          background: #333;
+          outline: none;
+          width: 0;
+          transition: all linear 0.5s;
+
+          &:focus {
+            width: 100%;
+          }
+        }
+
+      }
+
+      .select-item {
+        @include mobile {
+          margin-left: 8px;
+          padding: 8px 0;
+        }
+
+        border: 1px solid $borderColor;
+        padding: 8px 16px;
+        border-radius: 17px;
+        margin-left: 16px;
+        outline: none;
+      }
+    }
+
+  }
+
+  &__pagination {
+    @include flex(center, space-between);
+    padding: 20px 0;
+
+    &__right {
+      @include flex();
+
+      .page-input {
+        @include flex();
+        margin-right: 20px;
+
+        span {
+          margin-right: 10px;
+        }
+
+        input {
+          border-radius: 12px;
+          outline: none;
+          border: 1px solid $purple;
+          padding: 4px 8px;
+        }
+      }
+
+      .page-index {
+        font-size: 15px;
+      }
+    }
+  }
+
+  .table-container {
+    position: relative;
+
+    .table-loading {
+      position: absolute;
+      margin: auto;
+      top: 50px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 100;
+    }
+  }
+}
+
+.search-wrapper {
+  position: relative;
+  width: 200px;
+
+  @include mobile {
+    width: 100px;
+  }
+
+  .search {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: -170px;
+    bottom: 0;
+    left: 0;
+    width: 34px;
+    height: 34px;
+    background: $purple;
+    border-radius: 50%;
+    transition: all 1s;
+    z-index: 4;
+
+    @include mobile {
+      right: -70px;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      margin: auto;
+      top: 10px;
+      right: 0;
+      bottom: 0;
+      left: 10px;
+      width: 10px;
+      height: 2px;
+      background: white;
+      transform: rotate(45deg);
+      transition: all .5s;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      margin: auto;
+      top: -5px;
+      right: 0;
+      bottom: 0;
+      left: -5px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 2px solid white;
+      transition: all .5s;
+    }
+  }
+
+  input {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: -170px;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 30px;
+    outline: none;
+    border: none;
+    background: $purple;
+    color: $light;
+    padding: 0 10px 0 20px;
+    border-radius: 30px;
+    transition: all 1s;
+    opacity: 0;
+    z-index: 5;
+    letter-spacing: 0.1em;
+
+    @include mobile {
+      right: -70px;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:focus {
+      right: 0;
+      padding: 0 40px 0 20px;
+      width: 200px;
+      opacity: 1;
+      cursor: text;
+
+      @include mobile {
+        width: 100px;
+      }
+    }
+
+    &:focus~.search {
+      background: #151515;
+      z-index: 6;
+
+      &::before {
+        top: 0;
+        left: 0;
+        width: 15px;
+      }
+
+      &::after {
+        top: 0;
+        left: 0;
+        width: 15px;
+        height: 2px;
+        border: none;
+        background: white;
+        border-radius: 0%;
+        transform: rotate(-45deg);
+      }
+    }
+
+    &::placeholder {
+      color: white;
+      opacity: 0.5;
+    }
+  }
+}

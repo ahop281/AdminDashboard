@@ -1,0 +1,11 @@
+@use '../scss/abstracts/' as *;
+
+.auth-wrapper {
+    @include flex();
+}
+
+.right-fixed {
+    position: fixed;
+    top: calc(50% - 200px);
+    left: calc(75% - 150px);
+}

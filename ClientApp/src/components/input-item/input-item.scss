@@ -1,0 +1,64 @@
+@use '../../scss/abstracts/' as *;
+
+.input-item {
+    margin-bottom: 20px;
+
+    &__title {
+        margin-bottom: 8px;
+        font-size: 16px;
+    }
+
+    &__field {
+        padding: 16px 20px 12px; 
+        width: 100%;
+        border-radius: 8px;
+        border: 1px solid $borderColor;
+        color: $txtColor;
+        font-size: 16px;
+        white-space: 2px;
+
+        &:focus {
+            border: 1px solid $borderColorFocus;
+            outline: none;
+        }
+    }
+
+    &__error {
+        margin: 4px 0;
+        font-size: 14px;
+    }
+}
+
+.radio-input {
+    &__label {
+        margin: 8px;
+        font-size: 16px;
+        text-transform: capitalize;
+    }
+}
+
+.submit-input {
+    margin-top: 10px;
+    padding: 10px 16px; 
+    width: 100%;
+    border-radius: 8px;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    border: none;
+    background: $purple;
+    color: $white;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.checkbox-input {
+
+    &__label {
+        margin-left: 8px;
+        font-size: 16px;
+        color: $gray;
+    }
+}

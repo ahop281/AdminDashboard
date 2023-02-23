@@ -1,0 +1,10 @@
+@use '../../scss/abstracts/' as *;
+
+.form-header {
+    margin-bottom: 32px;
+
+    &__subtitle {
+        font-size: 15px;
+        color: $gray;
+    }
+}

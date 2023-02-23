@@ -1,0 +1,27 @@
+@use '../../scss/abstracts/' as *;
+
+.btn {
+    margin: 2px 4px;
+    padding: 2px 4px 0px;
+    outline: none;
+    background: white;
+    border: 1px solid $purple;
+    border-radius: 4px;
+    color: $txtColor;
+    font-size: 16px;
+    transition: all ease 0.5s;
+    cursor: pointer;
+
+    &:disabled {
+        background: $purple;
+        color: $light;
+        opacity: 0.4;
+        pointer-events: none;
+    }
+
+    &:hover {
+        background: $purple;
+        color: $light;
+        opacity: .8;
+    }
+}

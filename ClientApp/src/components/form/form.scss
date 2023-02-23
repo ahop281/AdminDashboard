@@ -1,0 +1,35 @@
+@use '../../scss/abstracts/' as *;
+
+.form {
+    min-height: 100vh;
+    padding: 48px 0;
+
+    @include flex();
+
+    &__container {
+        min-width: 350px;
+    }
+
+    &__item {
+        @include flex(center, space-between);
+
+        margin-bottom: 18px;
+
+        &__right {
+            font-size: 16px;
+            color: $purple;
+        }
+    }
+
+    &__bottom {
+        margin-top: 32px;
+        text-align: center;
+        color: $txtColor;
+        font-size: 16px;
+
+        &__text {
+            color: $purple;
+            margin-left: 8px;
+        }
+    }
+}
